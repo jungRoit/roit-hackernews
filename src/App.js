@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
 import './App.css';
-import axios from 'axios';
 
+/**
+ * App Class to render all components and include the app logic.
+ */
 class App extends Component {
 
+  /**
+   * 
+   * @param {*} props 
+   */
   constructor(props) {
     super(props);
     this.state = {}
   }
 
-
-
-
+  /**
+   * 
+   */
   render() {
     return (
       <div className="App">
