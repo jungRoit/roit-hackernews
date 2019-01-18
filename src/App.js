@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/header';
 import * as API from './services/api';
+import Story from './components/story';
 
 /**
  * App Class to render all components and include the app logic.
+ * 
  */
 class App extends Component {
 
@@ -25,7 +27,6 @@ class App extends Component {
    * Calls getStories function.
    */
   componentDidMount() {
-
   }
 
   /**
@@ -52,10 +53,11 @@ class App extends Component {
         <Header
           getStories={this.getStoryListByType}
         />
-        {this.state.stories.map(story => 
-          <h5 key={story}>
-            {story}
-          </h5>
+        {this.state.stories.slice(0, 19).map(story =>
+          <Story
+            key={story}
+            id = {story}
+          />
         )}
       </div>
     );
