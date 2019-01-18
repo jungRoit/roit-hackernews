@@ -1,7 +1,16 @@
 .nav-item {
   display: inline-block;
   text-align: center;
+  border-right: 1px solid white;
   width: 33%;
+}
+
+.nav-item:last-child {
+  border-right: none;
+}
+
+.nav-item:hover {
+  cursor: pointer;
 }
 
 
