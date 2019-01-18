@@ -20,7 +20,7 @@ const Header = (props) => {
 
   return (
     <div className='header'>
-      <div>
+      <div className='title'>
         <h1>Roit Hackernews</h1>
       </div>
       <Navbar

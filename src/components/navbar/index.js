@@ -17,19 +17,22 @@ const Navbar = (props) => {
   }
 
   return (
-    <div className=''>
+    <div className='navbar'>
       <ul>
         <li
+          className='nav-item'
           onClick={(event) => getStoryType(event)}
           title='newstories'>
           New Stories
         </li>
         <li
+          className='nav-item'
           onClick={(event) => getStoryType(event)}
           title='topstories'>
           Top Stories
         </li>
         <li
+          className='nav-item'
           onClick={(event) => getStoryType(event)}
           title='beststories'>
           Best Stories
