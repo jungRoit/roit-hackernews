@@ -1,0 +1,25 @@
+.story {
+  padding-left: 20px;
+  padding-right: 5px;
+}
+
+.story span {
+  padding-left: 5px;
+  padding-right: 5px;
+  border-right: 1px solid black;
+}
+
+.story span:last-child {
+  border-right: none;
+}
+
+.story-details {
+  display: inline;
+}
+
+@media screen and (max-width:480px) {
+  .story span {
+    display: block;
+    border-right:none;
+  }
+}

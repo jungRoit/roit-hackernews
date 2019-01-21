@@ -27,6 +27,7 @@ class App extends Component {
    * Calls getStories function.
    */
   componentDidMount() {
+    this.getStories('topstories');
   }
 
   /**
@@ -40,6 +41,11 @@ class App extends Component {
       .catch(err => err);
   }
 
+  /**
+   * Function to get story type from navbar.
+   * 
+   * @param {string} type
+   */
   getStoryListByType = (type) => {
     this.getStories(type);
   }
