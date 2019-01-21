@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.css';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 /**
  * Functional component for Navbar.
@@ -17,29 +18,30 @@ const Navbar = (props) => {
   }
 
   return (
-    <div className='navbar'>
-      <ul>
-        <li
-          className='nav-item'
-          onClick={(event) => getStoryType(event)}
-          title='newstories'>
-          New Stories
-        </li>
-        <li
-          className='nav-item'
-          onClick={(event) => getStoryType(event)}
-          title='topstories'>
-          Top Stories
-        </li>
-        <li
-          className='nav-item'
-          onClick={(event) => getStoryType(event)}
-          title='beststories'>
-          Best Stories
-
-        </li>
-      </ul>
-    </div>
+    <Router>
+      <div className='navbar'>
+        <ul>
+          <li
+            className='nav-item'
+            onClick={(event) => getStoryType(event)}
+            title='newstories'>
+            New Stories
+          </li>
+          <li
+            className='nav-item'
+            onClick={(event) => getStoryType(event)}
+            title='topstories'>
+            Top Stories
+          </li>
+          <li
+            className='nav-item'
+            onClick={(event) => getStoryType(event)}
+            title='beststories'>
+            Best Stories
+          </li>
+        </ul>
+      </div>
+    </Router>
   )
 }
 
