@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/header';
 import * as API from './services/api';
-import StoryWrapper from './components/story-wrapper';
+
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import NewStories from './components/newstories';
+import TopStories from './components/topstories';
+import BestStories from './components/beststories';
+
+
 
 /**
  * App Class to render all components and include the app logic.
@@ -27,7 +33,7 @@ class App extends Component {
    * Calls getStories function.
    */
   componentDidMount() {
-    this.getStories('topstories');
+    // this.getStories('topstories');
   }
 
   /**
@@ -41,14 +47,7 @@ class App extends Component {
       .catch(err => err);
   }
 
-  /**
-   * Function to get story type from navbar.
-   * 
-   * @param {string} type
-   */
-  getStoryListByType = (type) => {
-    this.getStories(type);
-  }
+
 
   /**
    * 
@@ -57,11 +56,14 @@ class App extends Component {
     return (
       <div className="">
         <Header
-          getStories={this.getStoryListByType}
         />
-        <StoryWrapper
-          stories = {this.state.stories.slice(0, 19)}
-        />
+
+        <div>
+          <Route path="/newstories" component={NewStories} />
+          <Route path="/topstories" component={TopStories} />
+          <Route path="/beststories" component={BestStories} />
+        </div>
+
 
       </div>
     );
