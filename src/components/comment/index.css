@@ -3,6 +3,11 @@
   border-left: 1px solid black;
   padding: 10px  20px 10px 20px;
   margin: 10px 0 10px 0;
+  overflow: hidden;
+  width: calc(100% - 40px);
+}
+
+.comment p {
 }
 
 .comment-details {
@@ -21,3 +26,11 @@
 .reply {
   cursor: pointer;
 }
+
+/* @media screen and (max-width:480px) {
+  .comment {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+} */
