@@ -36,7 +36,7 @@ class NewStories extends React.Component {
       this.state.isLoaded
         ? <StoryWrapper
         key= 'newstories'
-          stories={this.state.stories}
+          stories={this.state.stories.slice(0,9)}
         /> : <h2>Loadiing...</h2>
 
     );

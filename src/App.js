@@ -3,10 +3,11 @@ import './App.css';
 import Header from './components/header';
 import * as API from './services/api';
 
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import NewStories from './components/newstories';
 import TopStories from './components/topstories';
 import BestStories from './components/beststories';
+import CommentSection from './components/comment-section';
 
 
 
@@ -57,15 +58,14 @@ class App extends Component {
       <div className="">
         <Header
         />
-
         <div>
           <Route path="/newstories" component={NewStories} />
           <Route path="/topstories" component={TopStories} />
           <Route path="/beststories" component={BestStories} />
+          <Route path="/comments/:id" component={CommentSection}/>
         </div>
-
-
       </div>
+        
     );
   }
 }

@@ -27,6 +27,19 @@ a {
   color: #61dafb;
 }
 
+.clearfix:before, .clearfix:after {
+  content: '';
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

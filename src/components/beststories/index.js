@@ -38,7 +38,7 @@ class BestStories extends React.Component {
       this.state.isLoaded
         ? <StoryWrapper
         key='beststories'
-          stories={this.state.stories}
+          stories={this.state.stories.slice(0,9)}
         /> : <h2>Loadiing...</h2>
     );
   }

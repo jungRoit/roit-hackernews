@@ -1,4 +1,6 @@
 import React from 'react';
+import * as API from '../../services/api';
+import './index.css';
 
 /**
  * Component to show comments.
@@ -11,15 +13,22 @@ class Comment extends React.Component {
    */
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      comment: {}
+    };
+  }
 
+  toggleReplies = () => {
+    console.log('replies');
   }
 
   /**
    * Function to call API to get comment Data.
    */
   componentDidMount() {
-
+    API.getItem(this.props.id)
+      .then(res => this.setState({ comment: res.data }))
+      .catch(err => err);
   }
 
   /**
@@ -27,14 +36,16 @@ class Comment extends React.Component {
    */
   render() {
     return (
-      <div>
-        <p>
-          this is a comment.
+      <div className='comment clearfix'>
+        <h4>By: {this.state.comment.by}</h4>
+        <p dangerouslySetInnerHTML={{ __html: this.state.comment.text }}>
         </p>
-        <div>
-          <span>By:</span>
-          <span>on: </span>
-          <span>Replies: </span>
+        <div className='comment-details'>
+          <span>on: {this.state.comment.time}</span>
+          <span className="reply" onClick = {this.toggleReplies}>
+              {(this.state.comment.kids !== undefined)
+                ? Object.keys(this.state.comment.kids).length : 0} Replies
+          </span>
         </div>
       </div>
     );

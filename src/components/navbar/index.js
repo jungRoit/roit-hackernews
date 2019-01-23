@@ -1,9 +1,6 @@
 import React from 'react';
 import './index.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import NewStories from '../newstories';
-import TopStories from '../topstories';
-import BestStories from '../beststories';
+import { Link } from 'react-router-dom';
 
 
 /**

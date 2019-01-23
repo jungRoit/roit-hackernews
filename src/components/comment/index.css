@@ -1,0 +1,22 @@
+.comment {
+  border-bottom: 1px solid black;
+  padding: 10px  20px 10px 20px;
+  margin: 10px 0 10px 0;
+}
+
+.comment-details {
+  float: right;
+}
+
+.comment-details span {
+  padding: 0 5px 0 5px;
+  border-right: 1px solid black;
+}
+
+.comment-details span:last-child {
+  border-right: none;
+}
+
+.reply {
+  cursor: pointer;
+}

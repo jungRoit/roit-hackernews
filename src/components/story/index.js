@@ -1,6 +1,7 @@
 import React from 'react';
 import * as API from '../../services/api';
 import './index.css';
+import { Link } from 'react-router-dom';
 
 
 
@@ -41,9 +42,11 @@ class Story extends React.Component {
         <h3><a href={this.state.story.url}>{this.state.story.title}</a></h3>
         <div className='story-details'>
           <span>By: {this.state.story.by}</span>
-          <span>on : {new Date(this.state.story.time).toLocaleString()}</span>
+          <span>on : {Date(this.state.story.time).toLocaleString()}</span>
           <span>
-            {this.state.story.descendants} comments
+            <Link to= {`/comments/${this.props.id}`}>
+              {this.state.story.descendants} comments
+            </Link>
           </span>
         </div>
       </div>
