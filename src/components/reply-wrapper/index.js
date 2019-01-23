@@ -2,6 +2,7 @@ import React from 'react';
 import Comment from '../comment';
 
 /**
+ * Stateless component to render comment replies.
  * 
  * @param {*} props 
  */
