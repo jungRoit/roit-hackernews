@@ -1,6 +1,8 @@
 import React from 'react';
 import * as API from '../../services/api';
 import './index.css';
+import ReplyWrapper from '../reply-wrapper';
+
 
 /**
  * Component to show comments.
@@ -14,12 +16,20 @@ class Comment extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      comment: {}
+      comment: {},
+      toggleReply: false
     };
   }
 
   toggleReplies = () => {
-    console.log('replies');
+    if (this.state.comment.kids !== undefined) {
+      if (this.state.toggleReply) {
+        this.setState({ toggleReply: false });
+      } else {
+        this.setState({ toggleReply: true });
+      }
+    }
+
   }
 
   /**
@@ -42,11 +52,16 @@ class Comment extends React.Component {
         </p>
         <div className='comment-details'>
           <span>on: {this.state.comment.time}</span>
-          <span className="reply" onClick = {this.toggleReplies}>
-              {(this.state.comment.kids !== undefined)
-                ? Object.keys(this.state.comment.kids).length : 0} Replies
+          <span className="reply" onClick={this.toggleReplies}>
+            {(this.state.comment.kids !== undefined)
+              ? Object.keys(this.state.comment.kids).length : 0} Replies
           </span>
         </div>
+        {this.state.toggleReply ?
+          <ReplyWrapper
+            kids={this.state.comment.kids}
+          />
+          : <div></div>}
       </div>
     );
   }
