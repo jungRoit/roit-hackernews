@@ -18,6 +18,9 @@ ul {
   cursor: pointer;
 }
 
+.navbar > ul > li > a.active {
+  color: gold;
+}
 
 
 @media screen and (max-width:480px) {

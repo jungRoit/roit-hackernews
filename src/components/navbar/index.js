@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 /**
@@ -17,17 +17,17 @@ const Navbar = (props) => {
         <li
           className='nav-item'
           title='newstories'>
-          <Link to='/newstories'>New Stories</Link>
+          <NavLink to='/newstories'>New Stories</NavLink>
         </li>
         <li
           className='nav-item'
           title='topstories'>
-          <Link to='/topstories'>Top Stories</Link>
+          <NavLink to='/topstories'>Top Stories</NavLink>
         </li>
         <li
           className='nav-item'
           title='beststories'>
-          <Link to='/beststories'>Best Stories</Link>
+          <NavLink to='/beststories'>Best Stories</NavLink>
         </li>
       </ul>
     </div>
