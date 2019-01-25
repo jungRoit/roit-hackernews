@@ -15,7 +15,9 @@ class BestStories extends React.Component {
     super(props);
     this.state = {
       isLoaded: false,
-      stories: []
+      stories: [],
+      pageNo: 1,
+      itemsPerPage: 20
     };
   }
 
@@ -28,6 +30,9 @@ class BestStories extends React.Component {
       .catch(err => err);
   }
 
+  loadMoreStories = () => {
+    this.setState({ pageNo: this.state.pageNo + 1 });
+  }
 
 
   /**
@@ -36,10 +41,21 @@ class BestStories extends React.Component {
   render() {
     return (
       this.state.isLoaded
-        ? <StoryWrapper
-        key='beststories'
-          stories={this.state.stories.slice(0,9)}
-        /> : <h2>Loadiing...</h2>
+        ? <div>
+          <StoryWrapper
+            key='beststories'
+            stories={this.state.stories.slice(
+              0,
+              this.state.pageNo * this.state.itemsPerPage)}
+          />
+          <div
+            className='pagination'
+            onClick={this.loadMoreStories}
+          >
+            <p>Load More</p>
+          </div>
+        </div>
+        : <h2>Loadiing...</h2>
     );
   }
 }
