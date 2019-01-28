@@ -44,7 +44,7 @@ class Story extends React.Component {
           <span>By: {this.state.story.by}</span>
           <span>on : {Date(this.state.story.time).toLocaleString()}</span>
           <span>
-            <Link to= {`/comments/${this.props.id}`}>
+            <Link to= {`story/${this.props.id}/comments`}>
               {this.state.story.descendants} comments
             </Link>
           </span>

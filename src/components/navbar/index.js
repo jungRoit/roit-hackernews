@@ -14,21 +14,27 @@ const Navbar = (props) => {
 
     <div className='navbar'>
       <ul>
-        <li
-          className='nav-item'
-          title='newstories'>
-          <NavLink to='/newstories'>New Stories</NavLink>
-        </li>
-        <li
-          className='nav-item'
-          title='topstories'>
-          <NavLink to='/topstories'>Top Stories</NavLink>
-        </li>
-        <li
-          className='nav-item'
-          title='beststories'>
-          <NavLink to='/beststories'>Best Stories</NavLink>
-        </li>
+        <NavLink to='/newstories'>
+          <li
+            className='nav-item'
+            title='newstories'>
+            New Storiess
+          </li>
+        </NavLink>
+        <NavLink to='/topstories'>
+          <li
+            className='nav-item'
+            title='topstories'>
+            Top Stories
+          </li>
+        </NavLink>
+        <NavLink to='/beststories'>
+          <li
+            className='nav-item'
+            title='beststories'>
+            Best Stories
+          </li>
+        </NavLink>
       </ul>
     </div>
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import Comment from '../comment';
 import * as API from '../../services/api';
+import './index.css';
 
 /**
  * Component to wrap all comments of a story.
@@ -33,7 +34,7 @@ class CommentSection extends React.Component {
    */
   render() {
     return (
-      <div>
+      <div className='comment-section'>
         {(this.state.kids !== undefined) ?
           this.state.kids.map(id =>
             <Comment
