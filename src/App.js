@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/header';
 import * as API from './services/api';
+import StoryWrapper from './components/story-wrapper';
 
 /**
  * App Class to render all components and include the app logic.
+ * 
  */
 class App extends Component {
 
@@ -25,7 +27,7 @@ class App extends Component {
    * Calls getStories function.
    */
   componentDidMount() {
-
+    this.getStories('topstories');
   }
 
   /**
@@ -39,6 +41,11 @@ class App extends Component {
       .catch(err => err);
   }
 
+  /**
+   * Function to get story type from navbar.
+   * 
+   * @param {string} type
+   */
   getStoryListByType = (type) => {
     this.getStories(type);
   }
@@ -52,11 +59,10 @@ class App extends Component {
         <Header
           getStories={this.getStoryListByType}
         />
-        {this.state.stories.map(story => 
-          <h5 key={story}>
-            {story}
-          </h5>
-        )}
+        <StoryWrapper
+          stories = {this.state.stories.slice(0, 19)}
+        />
+
       </div>
     );
   }
