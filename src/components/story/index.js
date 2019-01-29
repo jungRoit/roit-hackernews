@@ -1,7 +1,8 @@
 import React from 'react';
 import * as API from '../../services/api';
 import './index.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 
 
 /**
@@ -37,21 +38,18 @@ class Story extends React.Component {
    */
   render() {
     return (
-      <Router>
-        <div className='story'>
-          <h3>{this.state.story.title}</h3>
-          <div className='story-details'>
-            <span>By: {this.state.story.by}</span>
-            <span>on :{Date(this.state.story.time)}</span>
-            <span>
-              <Link to={`/comments/${this.props.id}`}>
-                {this.state.story.descendants} comments
-              </Link>
-            </span>
-          </div>
+      <div className='story'>
+        <h3><a href={this.state.story.url}>{this.state.story.title}</a></h3>
+        <div className='story-details'>
+          <span>By: {this.state.story.by}</span>
+          <span>on : {Date(this.state.story.time).toLocaleString()}</span>
+          <span>
+            <Link to= {`/comments/${this.props.id}`}>
+              {this.state.story.descendants} comments
+            </Link>
+          </span>
         </div>
-       
-      </Router>
+      </div>
     );
   }
 
