@@ -1,0 +1,17 @@
+.nav-item {
+  display: inline-block;
+  text-align: center;
+  width: 33%;
+}
+
+
+
+@media screen and (max-width:480px) {
+  .nav-item {
+    font-size: 13px;
+    margin-bottom: 2%;
+  }
+  /* .navbar {
+    padding-left: 10%;
+  } */
+}

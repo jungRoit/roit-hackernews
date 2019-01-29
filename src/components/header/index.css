@@ -1,0 +1,19 @@
+.header {
+  width: 100%;
+  background: #282828;
+  color: #DFDFDF;
+  text-align: center;
+}
+
+
+
+@media screen and (max-width:480px) {
+  .header {
+    text-align: left;
+  }
+
+  .title {
+    padding-left: 15%;
+  }
+}
+
