@@ -1,5 +1,7 @@
 import React from 'react';
 import './index.css';
+import { NavLink } from 'react-router-dom';
+
 
 /**
  * Functional component for Navbar.
@@ -7,39 +9,29 @@ import './index.css';
  * @param {*} props 
  */
 const Navbar = (props) => {
-  /**
-   * Function to send storyType data to parent.
-   * 
-   * @param {object} event
-   */
-  const getStoryType = (event) => {
-    props.getStoryType(event.target.title);
-  }
 
   return (
+
     <div className='navbar'>
       <ul>
         <li
           className='nav-item'
-          onClick={(event) => getStoryType(event)}
           title='newstories'>
-          New Stories
+          <NavLink to='/newstories'>New Stories</NavLink>
         </li>
         <li
           className='nav-item'
-          onClick={(event) => getStoryType(event)}
           title='topstories'>
-          Top Stories
+          <NavLink to='/topstories'>Top Stories</NavLink>
         </li>
         <li
           className='nav-item'
-          onClick={(event) => getStoryType(event)}
           title='beststories'>
-          Best Stories
-
+          <NavLink to='/beststories'>Best Stories</NavLink>
         </li>
       </ul>
     </div>
+
   )
 }
 

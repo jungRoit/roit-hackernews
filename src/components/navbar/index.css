@@ -1,3 +1,8 @@
+ul {
+  padding: 0;
+  margin: 0;
+}
+
 .nav-item {
   display: inline-block;
   text-align: center;
@@ -13,6 +18,9 @@
   cursor: pointer;
 }
 
+.navbar > ul > li > a.active {
+  color: gold;
+}
 
 
 @media screen and (max-width:480px) {

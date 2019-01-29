@@ -1,11 +1,20 @@
 .header {
+  position: fixed;
+  top: 0;
   width: 100%;
   background: #282828;
   color: #DFDFDF;
   text-align: center;
 }
 
+.title {
+  margin-bottom: 15px;
+}
 
+h1 {
+  margin: 0;
+  padding: 0;
+}
 
 @media screen and (max-width:480px) {
   .header {

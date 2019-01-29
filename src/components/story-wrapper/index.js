@@ -14,12 +14,18 @@ const StoryWrapper = (props) => {
    */
   return (
     <div className='story-wrapper'>
-      {props.stories.map(id =>
-        <Story
-          key={id}
-          id={id}
-        />
-      )}
+      {(props.stories.length !== 0) ?
+        props.stories.map(id =>
+          <Story
+            key={id}
+            id={id}
+          />
+        )
+        : <div>
+          <h1>No Stories</h1>
+        </div>
+      }
+
     </div>
   );
 };

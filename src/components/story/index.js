@@ -1,5 +1,9 @@
 import React from 'react';
 import * as API from '../../services/api';
+import './index.css';
+import { Link } from 'react-router-dom';
+
+
 
 /**
  * Story component for individual Story.
@@ -17,13 +21,13 @@ class Story extends React.Component {
     this.state = {
       story: {}
     };
-    this.getStory();
+
   }
 
   /**
-   * Function to get Story data from the hackernews api.
+   * Function to call to the api to get story.
    */
-  getStory = () => {
+  componentDidMount() {
     API.getItem(this.props.id)
       .then(res => this.setState({ story: res.data }))
       .catch(err => err);
@@ -34,8 +38,17 @@ class Story extends React.Component {
    */
   render() {
     return (
-      <div>
-        <h3>{this.state.story.title}</h3>
+      <div className='story'>
+        <h3><a href={this.state.story.url}>{this.state.story.title}</a></h3>
+        <div className='story-details'>
+          <span>By: {this.state.story.by}</span>
+          <span>on : {Date(this.state.story.time).toLocaleString()}</span>
+          <span>
+            <Link to= {`/comments/${this.props.id}`}>
+              {this.state.story.descendants} comments
+            </Link>
+          </span>
+        </div>
       </div>
     );
   }
