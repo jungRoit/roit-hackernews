@@ -39,7 +39,15 @@ class Comment extends React.Component {
    */
   componentDidMount() {
     API.getItem(this.props.id)
-      .then(res => this.setState({ isFeteched: true, comment: res.data }))
+      .then(res => {
+        const resComment = {};
+
+        resComment.title = res.data.test || '';
+        resComment.by = res.data.by || '';
+        resComment.time = res.data.time || '';
+
+        this.setState({ isFeteched: true, comment: res.data })
+      })
       .catch(err => err);
   }
 
