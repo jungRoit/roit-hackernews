@@ -49,10 +49,9 @@ class Story extends React.Component {
    * Function to Reder Story jsx.
    */
   render() {
-    {
-      if (!this.state.isFetched) {
-        return null;
-      }
+
+    if (!this.state.isFetched) {
+      return null;
     }
 
     return (

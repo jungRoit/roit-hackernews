@@ -1,0 +1,18 @@
+.login-box {
+  text-align: center;
+  margin: auto;
+  margin-top: 90px;
+  border: 1px solid black;
+  width: 40%;
+  padding: 5%;
+}
+
+.login-box h1 {
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width:480px){
+.login-box {
+  border: none;
+  }
+}
