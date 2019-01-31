@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import {Redirect as Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 
 
 /**
@@ -29,18 +29,24 @@ class Login extends React.Component {
   }
 
   login = (event) => {
+    event.preventDefault();
+
     if (event.target.username.value === this.state.username) {
       if (event.target.password.value === this.state.password) {
-        alert('login Succesful');
-        localStorage.setItem('token', '123456');
-        this.props.history.push('/');
+        const user = {
+          username: this.state.username,
+          password: this.state.password
+        };
+
+        localStorage.setItem('user', user);
+        this.setState({isLoggedIn: true });
+        this.props.history.push(this.props.location.state.from.pathname);
       } else {
         alert('Incorrect Password');
       }
     } else {
       alert('Invalid Username');
     }
-    event.preventDefault();
   }
 
   /**
@@ -62,7 +68,7 @@ class Login extends React.Component {
           </div>
           <button type='submit'>Login</button>
         </form>
-        <a href='#'>Create a new Account</a>
+        <button>Create a new Account</button>
       </div>
     )
   }
