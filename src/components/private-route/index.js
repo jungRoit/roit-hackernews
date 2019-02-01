@@ -5,7 +5,7 @@ import { Route, Redirect } from 'react-router-dom';
 /**
  * HOC for login.
  * 
-
+ * @param {Object} component
  */
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const token = localStorage.getItem('user') || null;

@@ -38,7 +38,7 @@ class Login extends React.Component {
           password: this.state.password
         };
 
-        localStorage.setItem('user', user);
+        localStorage.setItem('user', JSON.stringify(user));
         this.setState({isLoggedIn: true });
         this.props.history.push(this.props.location.state.from.pathname);
       } else {

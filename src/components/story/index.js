@@ -21,7 +21,7 @@ class Story extends React.Component {
     super(props);
     this.state = {
       story: {},
-      isFetched: false
+      isFetched: false,
     };
 
   }
@@ -43,6 +43,10 @@ class Story extends React.Component {
         this.setState({ isFetched: true, story: resStory })
       })
       .catch(err => err);
+  }
+
+  componentWillUnmount() {
+
   }
 
   /**

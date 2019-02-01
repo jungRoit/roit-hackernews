@@ -17,9 +17,9 @@ const Routes = () => {
   return (
     <Router>
       <div>
-        <Header
-        />
+        {/* <Header /> */}
         <div>
+        <Route path="/*" component={Header} />
           <Route path="/newstories" component={NewStories} />
           <Route path="/topstories" component={TopStories} />
           <Route path="/beststories" component={BestStories} />
