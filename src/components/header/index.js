@@ -6,6 +6,7 @@ import './index.css';
 /**
  * Component for Header.
  * 
+ * @param {*} props
  */
 const Header = (props) => {
   /**

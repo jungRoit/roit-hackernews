@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.css';
+import * as loginService from '../../services/loginService';
 // import { Redirect } from 'react-router-dom';
 
 
@@ -15,8 +16,6 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: 'roit',
-      password: '123456',
       isLoggedIn: false
     };
   }
@@ -31,22 +30,23 @@ class Login extends React.Component {
   login = (event) => {
     event.preventDefault();
 
-    if (event.target.username.value === this.state.username) {
-      if (event.target.password.value === this.state.password) {
-        const user = {
-          username: this.state.username,
-          password: this.state.password
-        };
-
-        localStorage.setItem('user', JSON.stringify(user));
-        this.setState({isLoggedIn: true });
-        this.props.history.push(this.props.location.state.from.pathname);
-      } else {
-        alert('Incorrect Password');
-      }
-    } else {
-      alert('Invalid Username');
+    const user = {
+      username: event.target.username.value,
+      password: event.target.password.value
     }
+
+    loginService.validateLogin(user).then(res => {
+      if (res.data.status === 404) {
+        alert('Invalid username or password'); 
+        event.target.username.value = '';
+        event.target.password.value = '';
+      }else {
+        localStorage.setItem('user', JSON.stringify(res.data));
+        this.props.history.push(this.props.location.state.from.pathname);
+      }
+    })
+      .catch(err => err );
+
   }
 
   /**
@@ -68,7 +68,7 @@ class Login extends React.Component {
           </div>
           <button type='submit'>Login</button>
         </form>
-        <button>Create a new Account</button>
+       
       </div>
     )
   }
