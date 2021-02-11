@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 /**
@@ -14,21 +14,27 @@ const Navbar = (props) => {
 
     <div className='navbar'>
       <ul>
-        <li
-          className='nav-item'
-          title='newstories'>
-          <Link to='/newstories'>New Stories</Link>
-        </li>
-        <li
-          className='nav-item'
-          title='topstories'>
-          <Link to='/topstories'>Top Stories</Link>
-        </li>
-        <li
-          className='nav-item'
-          title='beststories'>
-          <Link to='/beststories'>Best Stories</Link>
-        </li>
+        <NavLink to='/newstories'>
+          <li
+            className='nav-item'
+            title='newstories'>
+            New Storiess
+          </li>
+        </NavLink>
+        <NavLink to='/topstories'>
+          <li
+            className='nav-item'
+            title='topstories'>
+            Top Stories
+          </li>
+        </NavLink>
+        <NavLink to='/beststories'>
+          <li
+            className='nav-item'
+            title='beststories'>
+            Best Stories
+          </li>
+        </NavLink>
       </ul>
     </div>
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import StoryWrapper from '../story-wrapper';
 import * as API from '../../services/api.js';
+import './index.css';
 
 /**
  * Component for New Stories.
@@ -15,7 +16,9 @@ class NewStories extends React.Component {
     super(props);
     this.state = {
       isLoaded: false,
-      stories: []
+      stories: [],
+      pageNo: 1,
+      itemsPerPage: 20
     };
   }
 
@@ -28,16 +31,31 @@ class NewStories extends React.Component {
       .catch(err => err);
   }
 
+  loadMoreStories = () => {
+    this.setState({ pageNo: this.state.pageNo + 1 });
+  }
+
   /**
-   * 
+   * Function to render jsx.
    */
   render() {
     return (
       this.state.isLoaded
-        ? <StoryWrapper
-        key= 'newstories'
-          stories={this.state.stories.slice(0,9)}
-        /> : <h2>Loadiing...</h2>
+        ? <div>
+          <StoryWrapper
+            key='newstories'
+            stories={this.state.stories.slice(
+              0,
+              this.state.pageNo * this.state.itemsPerPage)}
+          />
+          <div
+            className='pagination'
+            onClick={this.loadMoreStories}
+          >
+            <p>Load More</p>
+          </div>
+        </div>
+        : <h2>Loadiing...</h2>
 
     );
   }

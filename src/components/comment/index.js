@@ -2,6 +2,7 @@ import React from 'react';
 import * as API from '../../services/api';
 import './index.css';
 import ReplyWrapper from '../reply-wrapper';
+import RelativeTimeConverter from '../../utils/relativeTime';
 
 
 /**
@@ -17,7 +18,8 @@ class Comment extends React.Component {
     super(props);
     this.state = {
       comment: {},
-      toggleReply: false
+      toggleReply: false,
+      isFeteched: false
     };
   }
 
@@ -37,7 +39,15 @@ class Comment extends React.Component {
    */
   componentDidMount() {
     API.getItem(this.props.id)
-      .then(res => this.setState({ comment: res.data }))
+      .then(res => {
+        const resComment = {};
+
+        resComment.title = res.data.test || '';
+        resComment.by = res.data.by || '';
+        resComment.time = res.data.time || '';
+
+        this.setState({ isFeteched: true, comment: res.data })
+      })
       .catch(err => err);
   }
 
@@ -45,13 +55,17 @@ class Comment extends React.Component {
    * Function to render JSX.
    */
   render() {
+    if (!this.state.isFeteched) {
+      return null;
+    }
+
     return (
       <div className='comment clearfix'>
         <h4>By: {this.state.comment.by}</h4>
         <p dangerouslySetInnerHTML={{ __html: this.state.comment.text }}>
         </p>
         <div className='comment-details'>
-          <span>on: {this.state.comment.time}</span>
+          <span> {RelativeTimeConverter(this.state.comment.time * 1000)}</span>
           <span className="reply" onClick={this.toggleReplies}>
             {(this.state.comment.kids !== undefined)
               ? Object.keys(this.state.comment.kids).length : 0} Replies
